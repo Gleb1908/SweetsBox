@@ -4,6 +4,13 @@ public abstract class Sweet {
     private int price;
     private int id;
 
+    public Sweet (String name, int weight, int price, int id){
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+        this.id = id;
+    };
+
     public String getName() {
         return name;
     }
@@ -30,6 +37,10 @@ public abstract class Sweet {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }
