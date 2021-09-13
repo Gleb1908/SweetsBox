@@ -7,11 +7,13 @@ public class Main {
         box.addSweet(box.bounty);
         box.addSweet(box.nesquik);
         box.addSweet(box.schogetten);
-        box.addSweet(box.ritterSport);
         box.addSweet(box.raffaello);
+        box.addSweet(box.ritterSport);
         box.addSweet(box.lindor);
         box.addSweet(box.tuc);
         box.addSweet(box.milka);
+
+
 
     }
 }

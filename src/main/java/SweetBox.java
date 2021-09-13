@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class SweetBox implements SweetBoxInterface{
 
@@ -27,12 +29,12 @@ public class SweetBox implements SweetBoxInterface{
     }
 
     @Override
-    public void deleteSweetIndex(int index) {
+    public void removeSweetByIndex(int index) {
         sweetBox.remove(index-1);
     }
 
     @Override
-    public void deleteSweetLast() {
+    public void removeLastSweet() {
         sweetBox.remove(sweetBox.size()-1);
     }
 
@@ -62,5 +64,84 @@ public class SweetBox implements SweetBoxInterface{
                     ", стоимость: " + element.getPrice());
         }
     }
+
+    private int maxSweetWheigthInTheBox() {
+        int maxWeight = 0;
+        for(Sweet element : sweetBox) {
+            if (maxWeight < element.getWeight()) {
+                maxWeight = element.getWeight();
+            }
+            else {
+                continue;
+            }
+        }
+        return maxWeight;
+    }
+
+    private int indexOfMinSweetWheigthInTheBox() {
+
+        int minWeight = maxSweetWheigthInTheBox();
+        int indexOfSweet = 0;
+        for (int i = 0; i < sweetBox.size(); i++) {
+            if (minWeight > sweetBox.get(i).getWeight()) {
+                minWeight = sweetBox.get(i).getWeight();
+                indexOfSweet = i+1;
+            } else
+                continue;
+        }
+        return indexOfSweet;
+    }
+
+    @Override
+    public void smartRemovalByWeigth(int requiredWeigth) {
+        if (requiredWeigth < maxSweetWheigthInTheBox()) {
+            System.out.println("Самая тяжелая сладость весит больше введенного значения");
+        }
+        else {
+            while (requiredWeigth < weightSweetBox()) {
+                removeSweetByIndex(indexOfMinSweetWheigthInTheBox());
+            }
+        }
+    }
+
+    private int maxSweetPriceInTheBox() {
+        int maxPrice = 0;
+        for(Sweet element : sweetBox) {
+            if (maxPrice < element.getWeight()) {
+                maxPrice = element.getWeight();
+            }
+            else {
+                continue;
+            }
+        }
+        return maxPrice;
+    }
+
+    private int indexOfMinSweetPriceInTheBox() {
+
+        int minPrice = maxSweetPriceInTheBox();
+        int indexOfSweet = 0;
+        for (int i = 0; i < sweetBox.size(); i++) {
+            if (minPrice > sweetBox.get(i).getPrice()) {
+                minPrice = sweetBox.get(i).getPrice();
+                indexOfSweet = i+1;
+            } else
+                continue;
+        }
+        return indexOfSweet;
+    }
+
+    @Override
+    public void smartRemovalByPrice(int requiredPrice) {
+        if (requiredPrice < maxSweetPriceInTheBox()) {
+            System.out.println("Самая дорогая сладость стоит больше введенного значения");
+        }
+        else {
+            while (requiredPrice < priceSweetBox()) {
+                removeSweetByIndex(indexOfMinSweetPriceInTheBox());
+            }
+        }
+    }
+
 
 }
