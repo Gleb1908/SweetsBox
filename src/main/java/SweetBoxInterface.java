@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public interface SweetBoxInterface {
 
     public void addSweet(Sweet object);
