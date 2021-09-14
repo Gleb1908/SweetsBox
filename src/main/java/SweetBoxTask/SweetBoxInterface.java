@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package SweetBoxTask;
 
 public interface SweetBoxInterface {
 
