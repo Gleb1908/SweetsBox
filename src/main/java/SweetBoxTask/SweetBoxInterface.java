@@ -1,3 +1,5 @@
+package SweetBoxTask;
+
 public interface SweetBoxInterface {
 
     public void addSweet(Sweet object);

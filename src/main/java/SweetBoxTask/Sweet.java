@@ -1,3 +1,5 @@
+package SweetBoxTask;
+
 public abstract class Sweet {
     private String name;
     private int weight;

@@ -1,3 +1,5 @@
+package SweetBoxTask;
+
 import java.util.ArrayList;
 
 public class SweetBox implements SweetBoxInterface{
