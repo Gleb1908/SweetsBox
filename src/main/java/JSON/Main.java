@@ -8,15 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String jsonSource = "";
 
-        try {
-            JsonNode node = JacksonParser.parse(jsonSource);
-        }
-
-        catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 
