@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.io.IOException;
 
 public enum Currency {
-    EU, RUB, USD;
+    EU, RUB, USD, forValue;
 
     @JsonValue
     public String toValue() {
