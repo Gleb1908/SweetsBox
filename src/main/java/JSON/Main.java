@@ -12,7 +12,7 @@ public class Main {
 
         ObjectMapper mapper = new ObjectMapper();
         Root root = mapper.readValue(new File("src/main/resources/Companies.json"), Root.class);
-
+        root.printCompanyName();
 
     }
 
