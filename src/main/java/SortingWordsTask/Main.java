@@ -7,7 +7,7 @@ public class Main {
 
         WordsArray wordsArray = new WordsArray(){};
         wordsArray.fileToArray("src/main/java/SortingWordsTask/Words.txt");
-        wordsArray.mostCommonWords();
+        wordsArray.print();
 
     }
 }
