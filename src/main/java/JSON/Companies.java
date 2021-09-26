@@ -1,7 +1,10 @@
 package JSON;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Companies {
@@ -11,7 +14,7 @@ public class Companies {
     private String address;
     private String phoneNumber;
     private String inn;
-    private String founded;
+    private LocalDate founded;
     private List<Securities> securities;
 
     @JsonProperty("id")
@@ -58,12 +61,19 @@ public class Companies {
     }
 
     @JsonProperty("founded")
-    public String getFounded() {
+    @JsonFormat(pattern = "dd.MM.yyyy")
+    public LocalDate getFounded() {
         return founded;
     }
     @JsonProperty("founded")
-    public void setFounded(String founded) {
+    @JsonFormat(pattern = "dd.MM.yyyy")
+    public void setFounded(LocalDate founded) {
         this.founded = founded;
+    }
+
+    public String getFormated(String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        return founded.format(formatter);
     }
 
     @JsonProperty("securities")
