@@ -46,6 +46,7 @@ public class WordsArray {
         return index;
     }
 
+
     public void fileToArray(String path) throws IOException {
         try (Stream<String> stream = Files.lines(Paths.get(path))) {
             stringArray = stream.toArray(String[]::new);
@@ -95,7 +96,7 @@ public class WordsArray {
     }
 
     /**
-     * Сортировка по возрастанию количества слова
+     * Сортировка по возрастанию количества слов
      */
     public void sortingAmountAscending() {
         wordsArray.sort(comparing(Word::getAmount));
@@ -118,7 +119,6 @@ public class WordsArray {
         for (int i = 0; i < wordsArray.size(); i++){
             wordCounter = wordCounter + wordsArray.get(i).getAmount();
         }
-        System.out.println(wordCounter);
         for (int i = 0; i < wordsArray.size(); i++) {
             if (wordsArray.get(i).getAmount()==maxAmount) {
                 System.out.println(i+1 + ". " +
@@ -132,5 +132,12 @@ public class WordsArray {
         }
     }
 
+    public void printArray() {
+        for (int i = 0; i < wordsArray.size(); i++) {
+            System.out.println(i+1 + ". " +
+                    "количество: " + wordsArray.get(i).getAmount() +
+                    " | слово: " + wordsArray.get(i).getWord());
+        }
+    }
 
 }
