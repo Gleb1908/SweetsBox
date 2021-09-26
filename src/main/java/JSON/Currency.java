@@ -23,6 +23,9 @@ public enum Currency {
         if (value.equals("EU")) return EU;
         if (value.equals("RUB")) return RUB;
         if (value.equals("USD")) return USD;
+//        if (value == Currency.EU) return EU;
+//        if (value == Currency.RUB) return RUB;
+//        if (value == Currency.USD) return USD;
         throw new IOException("Cannot deserialize Currency");
     }
 }
