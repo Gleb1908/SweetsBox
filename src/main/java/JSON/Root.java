@@ -24,6 +24,9 @@ public class Root {
         System.out.println(companies);
     }
 
+    /**
+     * Вывод всех имеющихся компаний в формате "Краткое название - компания. Дата основания: дата"
+     */
     public void printCompanyName() {
         for (Companies companies: companies) {
             System.out.println("Краткое название - " + companies.getName().toString() +
@@ -31,6 +34,11 @@ public class Root {
         }
     }
 
+    /**
+     * Вывод всех ценных бумаг, которые просрочены на текущий день, а также
+     * посчитано суммарное число всех таких бумал.
+     * Вывод: код ценной бумаги, дата истечения, полное наименование организации-владельца
+     */
     public void printOverdueSecurities() throws ParseException {
         int count = 0;
         for (Companies companies: companies) {
@@ -38,7 +46,7 @@ public class Root {
                 if (new SimpleDateFormat("dd.MM.yyyy").parse(securities.getDate()).before(new Date())) {
                     System.out.println("Код ценной бумаги - " + securities.getCode() +
                             ". Дата истечения: " + securities.getDate() +
-                            ". Полное название организации владельца: " + companies.getName());
+                            ". Полное название организации-владельца: " + companies.getName());
                     count++;
                 }
             }
@@ -46,14 +54,21 @@ public class Root {
         System.out.println("Суммарное число просроченных бумаг: " + count);
     }
 
+    /**
+     *  Выведение названия и даты создания всех организаций, основанных после введенной даты
+     *  в одном из форматов: "ДД.ММ.ГГГГ", "ДД.ММ,ГГ", "ДД/ММ/ГГГ", "ДД.ММ.ГГ"
+    **/
     public void recentCompanies(String date) throws ParseException {
         date = date.replace(",", ".").replace("/",".");
 
 
     }
 
+    /**
+     * Выведение id компании и коды ценных бумаг, использующих валюту,
+     * которая указана пользователем: "EU", "USD", "RUB"
+    **/
     public void foreignExchangeSecurities(String curr) throws IOException {
-        int count = 0;
         for (Companies companies : companies) {
             for (int j = 0; j < companies.getSecurities().size(); j++) {
                 for (Currency currency : companies.getSecurities().get(j).getCurrency()) {
